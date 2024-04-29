@@ -7,12 +7,13 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 import com.example.onboarding.R
 import com.example.onboarding.data.PageData
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MainOnBoarding(){
+fun MainOnBoarding(navController: NavController){
     val items = ArrayList<PageData>()//se pone () para indicar que el array está vacío
 
     items.add(
@@ -44,6 +45,7 @@ fun MainOnBoarding(){
     
     OnBoardingPager(item = items, pagerState = pagerState, modifier = Modifier
         .fillMaxWidth()
-        .background(color = Color.White)
+        .background(color = Color.White),
+        navController
     )
 }
